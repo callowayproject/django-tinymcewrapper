@@ -125,7 +125,7 @@ TINYMCEWRAPPER_SETTINGS = {
         'simpleapp.simplemodel': {
             'description': {
                'attrs': {'cols': 80, 'rows': 30,}, 
-               'mce_attrs':{'theme': 'advanced'}
+               'mce_attrs': {'theme': 'advanced'}
             }, 
             'long_description': {},
         }

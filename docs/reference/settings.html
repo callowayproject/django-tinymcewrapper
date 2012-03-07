@@ -1,0 +1,124 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Settings &mdash; django-tinymcewrapper v0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="django-tinymcewrapper v0.1 documentation" href="../index.html" />
+    <link rel="up" title="Reference" href="index.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>django-tinymcewrapper v0.1 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Settings</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="../genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="index.html" title="Reference" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="../index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Settings</a></li>
+</ul>
+</li>
+</ul>
+
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="../search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="settings">
+<h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="admin-fields">
+<h2>ADMIN_FIELDS<a class="headerlink" href="#admin-fields" title="Permalink to this headline">¶</a></h2>
+<p>ADMIN_FIELDS is a dictionary in the format <tt class="docutils literal"><span class="pre">{'app.model':</span> <span class="pre">&lt;field</span> <span class="pre">configuration&gt;}</span></tt>. <tt class="docutils literal"><span class="pre">&lt;field</span> <span class="pre">configuration&gt;</span></tt> is either a <tt class="docutils literal"><span class="pre">list</span></tt> or <tt class="docutils literal"><span class="pre">tuple</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&#39;app.model&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;field&#39;</span><span class="p">,</span> <span class="s">&#39;field2&#39;</span><span class="p">,),}</span>
+</pre></div>
+</div>
+<p>or the <tt class="docutils literal"><span class="pre">&lt;field</span> <span class="pre">configuration&gt;</span></tt> is a <tt class="docutils literal"><span class="pre">dict</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&#39;app.model&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&#39;field1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;attrs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;cols&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s">&#39;rows&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+        <span class="s">&#39;mce_attrs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;theme&#39;</span><span class="p">:</span> <span class="s">&#39;advanced&#39;</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">&#39;field2&#39;</span><span class="p">:</span> <span class="p">{}</span> <span class="c"># default configuration</span>
+<span class="p">}}</span>
+</pre></div>
+</div>
+<p>For more information see <a class="reference internal" href="../configuration.html#configuration"><em>Configuration</em></a>.</p>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2012, coordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		<a href="index.html" accesskey="U">Reference</a><img src="../_static/triangle_closed.png" height="9" width="9" alt="&gt;">
+		Settings
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="../_static/toc.js"></script>
+  </body>
+</html>

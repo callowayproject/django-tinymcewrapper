@@ -1,0 +1,136 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration &mdash; django-tinymcewrapper v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="django-tinymcewrapper v0.1 documentation" href="index.html" />
+    <link rel="next" title="Reference" href="reference/index.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+  </head>
+  <body>
+<div id="docstitle">
+	<p>django-tinymcewrapper v0.1 documentation</p>
+</div>
+<div id="header">
+	<div id="title"><h1>Configuration</h1></div>
+	<ul id="headerButtons">
+		<li id="toc_button"><div class="headerButton"><a href="#">Table of Contents</a></div></li>
+		<li id="page_buttons">
+			<div class="headerButton"><a href="genindex.html" title="General Index" accesskey="I">index</a></div>
+			<div class="headerButton"><a href="reference/index.html" title="Reference" accesskey="N">next</a></div>
+			<div class="headerButton"><a href="getting_started.html" title="Getting Started" accesskey="P">previous</a></div>
+		</li>
+	</ul>
+</div>
+
+<div id="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+	<ul><li class="toctree-l1"><a href="index.html">Main Page</a></li></ul>
+	<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simple-configuration">Simple Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-configuration">Custom Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
+</ul>
+
+    <div id="searchbox" style="display: none">
+      
+        <form class="search" action="search.html" method="get">
+			<div class="search-wrapper">
+			<span class="search-left"></span>
+			<input class="prettysearch" type="text" name="q" size="18" />
+			<span class="search-right">&nbsp;</span>
+			</div>
+          <input type="submit" value="Search" class="searchbutton" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+        <p class="searchtip" style="font-size: 90%">
+        Enter search terms or a module, class or function name.
+        </p>
+    </div>
+    <script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+</div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="configuration">
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">ADMIN_FIELDS</span></tt> setting is a dictionary in the format <tt class="docutils literal"><span class="pre">{'app.model':</span> <span class="pre">&lt;field</span> <span class="pre">configuration&gt;}</span></tt>. There are two methods to specify <em>field configuration</em>: simple and custom.</p>
+<div class="section" id="simple-configuration">
+<h2>Simple Configuration<a class="headerlink" href="#simple-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <em>field configuration</em> in the simple configuration is simply a <tt class="docutils literal"><span class="pre">tuple</span></tt> of strings containing the fields to add a TinyMCE widget in the admin. These fields will use all the defaults for django-tinymce.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TINYMCEWRAPPER_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;ADMIN_FIELDS&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;simpleapp.simplemodel&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;description&#39;</span><span class="p">,</span> <span class="s">&#39;long_description&#39;</span><span class="p">)</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-configuration">
+<h2>Custom Configuration<a class="headerlink" href="#custom-configuration" title="Permalink to this headline">¶</a></h2>
+<p>For more control over how the TinyMCE widget is rendered, you can use a <tt class="docutils literal"><span class="pre">dict</span></tt> with the field names as keys and the value a <tt class="docutils literal"><span class="pre">dict</span></tt> that is passed as keyword arguments to the TinyMCE HTML widget.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">TINYMCEWRAPPER_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;ADMIN_FIELDS&#39;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s">&#39;simpleapp.simplemodel&#39;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="s">&#39;attrs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;cols&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s">&#39;rows&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,},</span>
+             <span class="s">&#39;mce_attrs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;theme&#39;</span><span class="p">:</span> <span class="s">&#39;advanced&#39;</span><span class="p">}</span>
+          <span class="p">},</span>
+          <span class="s">&#39;long_description&#39;</span><span class="p">:</span> <span class="p">{},</span>
+       <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div> 
+        </div>
+      </div>
+    <div class="footer">
+    <p>
+      &copy; Copyright 2012, coordt.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+	</p>
+    </div>
+      <div class="clearer"></div>
+    </div>
+	<div id="breadcrumbs">
+		Configuration
+		</ul>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="_static/toc.js"></script>
+  </body>
+</html>
