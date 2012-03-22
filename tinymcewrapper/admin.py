@@ -11,7 +11,7 @@ class TinyMCEAdmin(admin.ModelAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
         formfield = super(TinyMCEAdmin, self).formfield_for_dbfield(db_field, **kwargs)
         if db_field.name in self.editor_fields:
-            formfield.widget = TinyMCE(**self.editor_fields[db_field.name]))
+            formfield.widget = TinyMCE(**self.editor_fields[db_field.name])
         return formfield
 
 
