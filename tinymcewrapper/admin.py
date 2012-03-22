@@ -9,9 +9,10 @@ from .settings import ADMIN_FIELDS
 class TinyMCEAdmin(admin.ModelAdmin):
     editor_fields = {}
     def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(TinyMCEAdmin, self).formfield_for_dbfield(db_field, **kwargs)
         if db_field.name in self.editor_fields:
-            return db_field.formfield(widget=TinyMCE(**self.editor_fields[db_field.name]))
-        return super(TinyMCEAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+            formfield.widget = TinyMCE(**self.editor_fields[db_field.name]))
+        return formfield
 
 
 for model, modeladmin in admin.site._registry.items():
