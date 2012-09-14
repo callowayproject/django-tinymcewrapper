@@ -2,7 +2,8 @@ from django.conf import settings
 from django.db.models import get_model
 
 DEFAULT_SETTINGS = {
-    'ADMIN_FIELDS': {}
+    'ADMIN_FIELDS': {},
+    'INLINE_FIELDS': {},
 }
 
 USER_SETTINGS = DEFAULT_SETTINGS.copy()

@@ -30,9 +30,9 @@ For more control over how the TinyMCE widget is rendered, you can use a ``dict``
        'ADMIN_FIELDS': {
           'simpleapp.simplemodel': {
              'description': {
-                'attrs': {'cols': 80, 'rows': 30,}, 
+                'attrs': {'cols': 80, 'rows': 30,},
                 'mce_attrs': {'theme': 'advanced'}
-             }, 
+             },
              'long_description': {},
           }
        },
