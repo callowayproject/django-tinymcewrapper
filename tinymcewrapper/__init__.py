@@ -1,13 +1,15 @@
 """
-django-tinymcewrapper
+django-tinymcewrapper allows you to easily add tinymce widgets to other apps
+admin forms without modification of the other app.
 """
 __version_info__ = {
     'major': 0,
-    'minor': 3,
-    'micro': 0,
+    'minor': 4,
+    'micro': 1,
     'releaselevel': 'final',
     'serial': 1
 }
+
 
 def get_version(short=False):
     assert __version_info__['releaselevel'] in ('alpha', 'beta', 'final')
