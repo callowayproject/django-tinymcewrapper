@@ -38,16 +38,26 @@ def get_efields(model):
         raise ImproperlyConfigured("The fields for model %s are not a list, tuple or dict." % model.__class__)
 
 
+def tuple_sub(tup, orig, new):
+    """
+    Replace an item in a tuple
+    """
+    idx = tup.index(orig)
+    return tup[:idx] + (new, ) + tup[idx + 1:]
+
+
 for model, modeladmin in admin.site._registry.items():
     inlines = getattr(modeladmin, 'inlines', [])
     for inline in inlines:
-        print inline
         if inline.model in ADMIN_FIELDS:
             efields = get_efields(inline.model)
             newinline = type(
                 'newadmin', (TinyMCEInlineAdmin, inline), {
                     'editor_fields': efields, })
-            inlines[inlines.index(inline)] = newinline
+            if isinstance(inlines, tuple):
+                modeladmin.inlines = tuple_sub(modeladmin.inlines, inline, newinline)
+            else:
+                inlines[inlines.index(inline)] = newinline
     if model in ADMIN_FIELDS:
         efields = get_efields(model)
         admin.site.unregister(model)
